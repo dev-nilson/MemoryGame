@@ -2,6 +2,7 @@ package com.devnilson.memory
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
 import androidx.core.content.ContextCompat
@@ -42,5 +43,9 @@ class MainActivity : AppCompatActivity() {
                 gridButton.setBackgroundColor(unselectedLightColor)
             }
         }
+    }
+
+    fun onNewGameClick(view: View) {
+        startGame()
     }
 }

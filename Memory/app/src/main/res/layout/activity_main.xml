@@ -50,15 +50,16 @@
         android:layout_marginTop="20dp"
         android:text="@string/new_game"
         android:onClick="onNewGameClick"
-        style="@style/OptionButton"
+        style="@style/SecondaryButton"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/memory_grid" />
 
     <Button
         android:id="@+id/play_button"
-        style="@style/OptionButton"
         android:text="@string/play"
+        android:background="@color/blue"
+        style="@style/PrimaryButton"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

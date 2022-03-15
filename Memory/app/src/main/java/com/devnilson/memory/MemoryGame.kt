@@ -1,7 +1,7 @@
 package com.devnilson.memory
 import kotlin.random.Random
 
-const val GRID_SIZE = 4
+const val GRID_SIZE = 5
 
 class MemoryGame {
     private val lightsGrid = Array(GRID_SIZE) { Array(GRID_SIZE) { true } }

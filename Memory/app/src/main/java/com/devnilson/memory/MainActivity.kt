@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.GridLayout
 import androidx.core.content.ContextCompat
 
+const val GAME_STATE = "gameState"
+
 class MainActivity : AppCompatActivity() {
     private lateinit var game: MemoryGame
     private lateinit var memoryGridLayout: GridLayout
@@ -22,7 +24,18 @@ class MainActivity : AppCompatActivity() {
         unselectedLightColor = ContextCompat.getColor(this, R.color.gray)
 
         game = MemoryGame()
-        startGame()
+
+        if (savedInstanceState == null) {
+            startGame()
+        } else {
+            game.state = savedInstanceState.getString(GAME_STATE)!!
+            setButtonColors()
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(GAME_STATE, game.state)
     }
 
     private fun startGame() {

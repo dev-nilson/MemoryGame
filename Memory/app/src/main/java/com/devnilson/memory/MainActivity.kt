@@ -1,5 +1,6 @@
 package com.devnilson.memory
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,16 +13,16 @@ const val GAME_STATE = "gameState"
 class MainActivity : AppCompatActivity() {
     private lateinit var game: MemoryGame
     private lateinit var memoryGridLayout: GridLayout
-    private var selectedLightColor = 0
-    private var unselectedLightColor = 0
+    private var selectedColor = 0
+    private var unselectedColor = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         memoryGridLayout = findViewById(R.id.memory_grid)
-        selectedLightColor = ContextCompat.getColor(this, R.color.blue)
-        unselectedLightColor = ContextCompat.getColor(this, R.color.gray)
+        selectedColor = ContextCompat.getColor(this, R.color.blue)
+        unselectedColor = ContextCompat.getColor(this, R.color.gray)
 
         game = MemoryGame()
 
@@ -50,15 +51,20 @@ class MainActivity : AppCompatActivity() {
             val row = buttonIndex / GRID_SIZE
             val col = buttonIndex % GRID_SIZE
 
-            if (game.isLightSelected(row, col)) {
-                gridButton.setBackgroundColor(selectedLightColor)
+            if (game.isColorSelected(row, col)) {
+                gridButton.setBackgroundColor(selectedColor)
             } else {
-                gridButton.setBackgroundColor(unselectedLightColor)
+                gridButton.setBackgroundColor(unselectedColor)
             }
         }
     }
 
     fun onNewGameClick(view: View) {
         startGame()
+    }
+
+    fun onPlayClick(view: View) {
+        val intent = Intent(this, PlayActivity::class.java)
+        startActivity(intent)
     }
 }

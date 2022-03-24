@@ -46,16 +46,6 @@
     </GridLayout>
 
     <Button
-        android:id="@+id/new_game_button"
-        android:layout_marginTop="20dp"
-        android:text="@string/new_game"
-        android:onClick="onNewGameClick"
-        style="@style/SecondaryButton"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/memory_grid" />
-
-    <Button
         android:id="@+id/play_button"
         android:text="@string/play"
         android:onClick="onPlayClick"
@@ -64,6 +54,6 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/new_game_button" />
+        app:layout_constraintTop_toBottomOf="@id/memory_grid" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

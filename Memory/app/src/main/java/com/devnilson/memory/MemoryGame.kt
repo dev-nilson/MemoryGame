@@ -35,7 +35,7 @@ class MemoryGame {
         }
     }
 
-    fun isLightSelected(row: Int, col: Int): Boolean {
+    fun isColorSelected(row: Int, col: Int): Boolean {
         return memoryGrid[row][col]
     }
 }

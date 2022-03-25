@@ -1,11 +1,14 @@
 package com.devnilson.memory
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 
 const val GAME_STATE = "gameState"
@@ -65,6 +68,14 @@ class MainActivity : AppCompatActivity() {
 
     fun onPlayClick(view: View) {
         val intent = Intent(this, PlayActivity::class.java)
-        startActivity(intent)
+        gameResultLauncher.launch(intent)
+    }
+
+    val gameResultLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val gameResult = result.data!!.getStringExtra(GAME_RESULT)
+            Toast.makeText(this, gameResult, Toast.LENGTH_SHORT).show()
+        }
     }
 }

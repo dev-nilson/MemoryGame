@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
+
+const val GAME_RESULT = "com.devnilson.memory"
 
 class PlayActivity : AppCompatActivity() {
     private lateinit var game: MemoryGame
@@ -76,5 +79,16 @@ class PlayActivity : AppCompatActivity() {
                 gridButton.setBackgroundColor(unselectedColor)
             }
         }
+    }
+
+    fun onClearClick(view: View) {
+        setPlayGrid()
+    }
+
+    fun onCheckClick(view: View) {
+        val dataIntent = Intent()
+        dataIntent.putExtra(GAME_RESULT, game.state)
+        setResult(RESULT_OK, dataIntent)
+        finish()
     }
 }

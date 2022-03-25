@@ -27,6 +27,14 @@ class MemoryGame {
             }
         }
 
+    fun selectLight(row: Int, col: Int) {
+        memoryGrid[row][col] = true
+    }
+
+    fun unselectLight(row: Int, col: Int) {
+        memoryGrid[row][col] = false
+    }
+
     fun newGame() {
         for (row in 0 until GRID_SIZE) {
             for (col in 0 until GRID_SIZE) {

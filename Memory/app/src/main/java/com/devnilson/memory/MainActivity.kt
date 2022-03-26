@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
         gameResultLauncher.launch(intent)
     }
 
-    val gameResultLauncher = registerForActivityResult(
+    private val gameResultLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val gameResult = result.data!!.getStringExtra(GAME_RESULT)
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun checkResults(gameResult: String?) {
+    private fun checkResults(gameResult: String?) {
         if (gameResult == game.state) {
             Toast.makeText(this, "YOU WIN \uD83D\uDC4D", Toast.LENGTH_SHORT).show()
         } else {

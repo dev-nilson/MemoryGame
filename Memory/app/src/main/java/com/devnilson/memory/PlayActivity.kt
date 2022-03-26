@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 
-const val GAME_RESULT = "com.devnilson.memory"
+const val GAME_RESULT = "gameResult"
 
 class PlayActivity : AppCompatActivity() {
     private lateinit var game: MemoryGame
@@ -31,7 +31,13 @@ class PlayActivity : AppCompatActivity() {
         unselectedColor = ContextCompat.getColor(this, R.color.gray)
 
         game = MemoryGame()
-        startGame()
+
+        if (savedInstanceState == null) {
+            startGame()
+        } else {
+            game.state = savedInstanceState.getString(GAME_RESULT)!!
+            setButtonColors()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

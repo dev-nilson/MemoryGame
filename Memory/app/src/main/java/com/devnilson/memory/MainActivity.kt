@@ -2,14 +2,14 @@ package com.devnilson.memory
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import android.widget.GridLayout
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+
 
 const val GAME_STATE = "gameState"
 
@@ -85,5 +85,7 @@ class MainActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "YOU LOSE \uD83D\uDC4E", Toast.LENGTH_SHORT).show()
         }
+
+
     }
 }

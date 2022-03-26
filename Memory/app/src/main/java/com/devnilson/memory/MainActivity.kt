@@ -75,7 +75,15 @@ class MainActivity : AppCompatActivity() {
             ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == Activity.RESULT_OK) {
             val gameResult = result.data!!.getStringExtra(GAME_RESULT)
-            Toast.makeText(this, gameResult, Toast.LENGTH_SHORT).show()
+            checkResults(gameResult)
+        }
+    }
+
+    fun checkResults(gameResult: String?) {
+        if (gameResult == game.state) {
+            Toast.makeText(this, "YOU WIN \uD83D\uDC4D", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "YOU LOSE \uD83D\uDC4E", Toast.LENGTH_SHORT).show()
         }
     }
 }

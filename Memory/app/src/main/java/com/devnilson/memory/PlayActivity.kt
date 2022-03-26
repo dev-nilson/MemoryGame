@@ -34,6 +34,11 @@ class PlayActivity : AppCompatActivity() {
         startGame()
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(GAME_RESULT, game.state)
+    }
+
     private fun onButtonClick(view: View) {
         val buttonIndex = playGridLayout.indexOfChild(view)
         val row = buttonIndex / GRID_SIZE
